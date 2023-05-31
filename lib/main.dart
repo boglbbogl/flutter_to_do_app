@@ -1,8 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_to_do/constant/observer_bloc.dart';
-import 'package:flutter_to_do/constant/router.dart';
+import 'package:flutter_to_do/_constant/observer_bloc.dart';
+import 'package:flutter_to_do/_constant/router.dart';
+import 'package:flutter_to_do/_src/application/authentication/auth/auth_bloc.dart';
 import 'package:flutter_to_do/firebase_options.dart';
 
 Future<void> main() async {
@@ -19,8 +20,11 @@ class TodoApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: router,
+    return BlocProvider<AuthBloc>(
+      create: (_) => AuthBloc(),
+      child: MaterialApp.router(
+        routerConfig: router,
+      ),
     );
   }
 }
