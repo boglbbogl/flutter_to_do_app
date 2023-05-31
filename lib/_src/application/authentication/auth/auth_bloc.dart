@@ -5,6 +5,7 @@ import 'package:flutter_to_do/_src/application/authentication/auth/auth_state.da
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc() : super(AuthCheckState()) {
     on<AuthCheckEvent>(_check);
+    add(AuthCheckEvent());
     on<AuthSignInWithEmailAndPassword>(_signInWithEmailAndPassword);
     on<AuthSignInWithGoogle>(_signInWithGoogle);
     on<AuthSignOut>(_signOut);

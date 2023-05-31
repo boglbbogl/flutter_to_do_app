@@ -22,6 +22,7 @@ class TodoApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<AuthBloc>(
       create: (_) => AuthBloc(),
+      lazy: false,
       child: MaterialApp.router(
         routerConfig: router,
       ),
