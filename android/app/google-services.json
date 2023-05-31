@@ -12,7 +12,20 @@
           "package_name": "com.tyger.todo"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "227873133130-g35ebke8cdgri1jus8mguurv4u1o085f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tyger.todo",
+            "certificate_hash": "d3ae62345c52768b774c5f71e2a66e73d662cf1f"
+          }
+        },
+        {
+          "client_id": "227873133130-8mpubaqc1ictib5pf6qpe7997o9ru4tt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDZKC8gkse5b7Vj5SsKRDUPfnXcnNUkghA"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "227873133130-8mpubaqc1ictib5pf6qpe7997o9ru4tt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "227873133130-qq1pia9hb1uviarq96hudtc0v9f6e0p1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.tyger.todo"
+              }
+            }
+          ]
         }
       }
     }
