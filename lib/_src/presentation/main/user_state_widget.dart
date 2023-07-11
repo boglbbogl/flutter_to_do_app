@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_to_do/_src/application/authentication/auth/auth_bloc.dart';
@@ -15,7 +14,7 @@ class UserStateWidget extends StatelessWidget {
           return Container(
               padding: const EdgeInsets.all(8.0),
               color: const Color.fromRGBO(61, 61, 61, 1),
-              width: MediaQueryData.fromWindow(window).size.width,
+              width: MediaQuery.of(context).size.width,
               height: 50,
               child: const Center(
                 child: CircularProgressIndicator(
