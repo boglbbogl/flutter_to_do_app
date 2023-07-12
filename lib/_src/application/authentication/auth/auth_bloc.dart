@@ -11,7 +11,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthSignOut>(_signOut);
   }
 
-  Future<void> _check(AuthCheckEvent event, Emitter<AuthState> emit) async {}
+  Future<void> _check(AuthCheckEvent event, Emitter<AuthState> emit) async {
+    emit(AuthUnUserState());
+  }
+
   Future<void> _signInWithEmailAndPassword(
       AuthSignInWithEmailAndPassword event, Emitter<AuthState> emit) async {}
   Future<void> _signInWithGoogle(
