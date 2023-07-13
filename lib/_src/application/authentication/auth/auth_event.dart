@@ -1,8 +1,12 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter_to_do/_src/model/user/user_model.dart';
 
 abstract class AuthEvent extends Equatable {}
 
 class AuthCheckEvent extends AuthEvent {
+  final UserModel? userModel;
+
+  AuthCheckEvent({this.userModel});
   @override
   List<Object?> get props => [];
 }

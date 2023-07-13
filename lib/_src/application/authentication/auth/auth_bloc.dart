@@ -12,7 +12,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   Future<void> _check(AuthCheckEvent event, Emitter<AuthState> emit) async {
-    emit(AuthUnUserState());
+    if (event.userModel != null) {
+      emit(AuthUserState(user: event.userModel));
+    } else {
+      emit(AuthUnUserState());
+    }
   }
 
   Future<void> _signInWithEmailAndPassword(

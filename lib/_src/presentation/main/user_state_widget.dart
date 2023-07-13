@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_to_do/_src/application/authentication/auth/auth_bloc.dart';
 import 'package:flutter_to_do/_src/application/authentication/auth/auth_state.dart';
-import 'package:flutter_to_do/_src/presentation/auth/sign_in/sign_in_page.dart';
+import 'package:go_router/go_router.dart';
 
 class UserStateWidget extends StatelessWidget {
   const UserStateWidget({super.key});
@@ -56,14 +56,18 @@ class UserStateWidget extends StatelessWidget {
                               return Container(
                                 height: 200,
                                 decoration: const BoxDecoration(
-                                    gradient: SweepGradient(colors: [
-                                  Color.fromRGBO(61, 61, 61, 1),
-                                  Color.fromRGBO(71, 71, 71, 1),
-                                  Color.fromRGBO(81, 81, 81, 1),
-                                  Color.fromRGBO(91, 91, 91, 1),
-                                  Color.fromRGBO(71, 71, 71, 1),
-                                  Color.fromRGBO(61, 61, 61, 1),
-                                ])),
+                                    gradient: LinearGradient(
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                        colors: [
+                                      Color.fromRGBO(61, 61, 61, 1),
+                                      Color.fromRGBO(51, 51, 51, 1),
+                                      Color.fromRGBO(51, 51, 51, 1),
+                                      Color.fromRGBO(61, 61, 61, 1),
+                                      Color.fromRGBO(61, 61, 61, 1),
+                                      Color.fromRGBO(71, 71, 71, 1),
+                                      Color.fromRGBO(81, 81, 81, 1),
+                                    ])),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
@@ -72,16 +76,23 @@ class UserStateWidget extends StatelessWidget {
                                           MainAxisAlignment.center,
                                       children: [
                                         _signInButton(
-                                            title: "E-MAIL",
-                                            onTap: () => Navigator.of(context)
-                                                .push(MaterialPageRoute(
-                                                    builder: (_) =>
-                                                        const SignInPage()))),
-                                        const SizedBox(width: 20),
+                                          title: "SIGN-UP",
+                                          onTap: () => context
+                                            ..pop()
+                                            ..push("/signUp"),
+                                        ),
+                                        const SizedBox(width: 12),
                                         _signInButton(
-                                            title: "GOOGLE", onTap: () {}),
+                                          title: "E-MAIL",
+                                          onTap: () {},
+                                        ),
+                                        const SizedBox(width: 12),
+                                        _signInButton(
+                                          title: "GOOGLE",
+                                          onTap: () {},
+                                        ),
                                       ],
-                                    )
+                                    ),
                                   ],
                                 ),
                               );
@@ -104,13 +115,21 @@ class UserStateWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         HapticFeedback.mediumImpact();
+
         onTap();
       },
       child: Container(
-        width: 80,
-        height: 80,
+        width: 95,
+        height: 95,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
+            boxShadow: const [
+              BoxShadow(
+                color: Color.fromRGBO(61, 61, 61, 1),
+                blurRadius: 20,
+                spreadRadius: 5,
+              ),
+            ],
+            borderRadius: BorderRadius.circular(90),
             gradient: const LinearGradient(
                 begin: Alignment.topRight,
                 end: Alignment.bottomLeft,
@@ -126,7 +145,7 @@ class UserStateWidget extends StatelessWidget {
         child: Container(
           margin: const EdgeInsets.all(4),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(90),
               border: Border.all(width: 4, color: Colors.white30)),
           child: Center(
               child: Text(
@@ -134,7 +153,7 @@ class UserStateWidget extends StatelessWidget {
             style: const TextStyle(
                 fontWeight: FontWeight.w900,
                 color: Colors.white70,
-                fontSize: 18),
+                fontSize: 13),
           )),
         ),
       ),
